@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//dict/OptiDict=UTF-8
+encoding//dict/commonmatch=UTF-8
+encoding//dict/sentiment=UTF-8
+encoding//src/com/run/rhea/core/FeatureIdentify.java=UTF-8
+encoding//src/com/run/rhea/core/IdentifyImpl.java=UTF-8
+encoding//src/com/run/rhea/model/Feature.java=UTF-8
+encoding//src/com/run/rhea/tools/SingletonPaserAlpha.java=UTF-8
+encoding//src/com/run/rhea/tools/UnambiguousWordSet.java=UTF-8
+encoding//src/com/run/whunlp/develop/FeatureSentiAnalyisis.java=UTF-8
+encoding//src/com/run/whunlp/docSentiment/Test.java=UTF-8
+encoding//src/com/run/whunlp/model/FeatureSentimentMerge.java=UTF-8
+encoding//src/com/run/whunlp/model/FeatureSentimentMergeSimple.java=UTF-8
+encoding//src/configure=UTF-8
+encoding//src/unAmbiguousWords=UTF-8
