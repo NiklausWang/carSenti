@@ -17,14 +17,14 @@ import org.apache.commons.io.FileUtils;
 public class DictEdit {
 	private static List<DictTerm> dict;
 	public static void main(String args[]) throws IOException {
-		String sentimentTerm = "发生碰撞";
-		String polarity = "-1";
+		String sentimentTerm = "高级";
+		String polarity = "1";
 		
 		if(polarity.equals("5")){
-			addTerm("E:\\luna_workspace\\SentimentAnalysis\\dict\\OptiDict",sentimentTerm,polarity);
+			addTerm("E:\\wanghao\\gitProjects\\carSenti\\SentimentAnalysis\\dict\\OptiDict",sentimentTerm,polarity);
 		}
 		else{
-			addTerm("E:\\luna_workspace\\SentimentAnalysis\\dict\\sentiment",sentimentTerm,polarity);
+			addTerm("E:\\wanghao\\gitProjects\\carSenti\\SentimentAnalysis\\dict\\sentiment",sentimentTerm,polarity);
 		}
 		
 	}
