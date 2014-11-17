@@ -30,7 +30,6 @@ public final class DocSentiment {
 
 		document = document.replaceAll("\\n+", "").replaceAll("\\s[\u4e00-\u9fa5]*?：", "")
 				.replaceAll("\\s+", " ").replaceAll("&nbsp", "");
-		// Pattern pt = Pattern.compile("[;��:������!?��\"����={}.*%$��@+-]{3,}");
 		Pattern pt = Pattern.compile("([;；]\\s*){2,}");
 		Matcher mc = pt.matcher(document);
 		document = mc.replaceAll(";");

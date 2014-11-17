@@ -16,7 +16,7 @@ import org.apache.commons.io.FileUtils;
 public class DictEdit {
 	private static List<DictTerm> dict;
 	public static void main(String args[]) throws IOException {
-		String sentimentTerm = "服务区";
+		String sentimentTerm = "全面价格距惠";
 		String polarity = "5";
 		
 		if(polarity.equals("5")){
