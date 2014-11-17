@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,14 +16,14 @@ import org.apache.commons.io.FileUtils;
 public class DictEdit {
 	private static List<DictTerm> dict;
 	public static void main(String args[]) throws IOException {
-		String sentimentTerm = "¸ß¼¶";
+		String sentimentTerm = "";
 		String polarity = "1";
 		
 		if(polarity.equals("5")){
-			addTerm("E:\\wanghao\\gitProjects\\carSenti\\SentimentAnalysis\\dict\\OptiDict",sentimentTerm,polarity);
+			addTerm("dict\\OptiDict",sentimentTerm,polarity);
 		}
 		else{
-			addTerm("E:\\wanghao\\gitProjects\\carSenti\\SentimentAnalysis\\dict\\sentiment",sentimentTerm,polarity);
+			addTerm("dict\\sentiment",sentimentTerm,polarity);
 		}
 		
 	}
@@ -46,7 +45,6 @@ public class DictEdit {
 			dict.add(dt);
 		}
 
-		System.out.println("µ±Ç°´ÊµäÌõÄ¿ÊıÎª£º " + dict.size());
 	}
 
 	public static void writeTofile(String text, String path) throws IOException {
@@ -70,10 +68,10 @@ public class DictEdit {
 			for(DictTerm dt:dict){
 				if(dt.getTerm().equals(sentimentTerm)){
 					if(dt.getPolarity().equals(polarity)){
-						System.out.println("ÒÑ´æÔÚÓÚ´Êµä");
+						System.out.println("å·²å­˜åœ¨äºè¯å…¸");
 						return;
 					}else{
-						System.out.println("¼«ĞÔ³åÍ»£¬ÒÔÕâ´ÎÎª×¼£¡");
+						System.out.println("ææ€§å†²çªï¼Œä»¥æœ¬æ¬¡ä¸ºå‡†ï¼");
 						toRemove.add(dt);
 					}
 				}
@@ -93,7 +91,6 @@ public class DictEdit {
 			File oldDict = new File(dictName);
 			Boolean renameSuccessful = false;
 			if(oldDict.exists()){
-				Date now = new Date();
 				String backupName = dictName + ".bak";
 				File dest = new File(backupName);
 				FileUtils.copyFile(oldDict,dest,true);
@@ -106,9 +103,9 @@ public class DictEdit {
 			if(renameSuccessful){
 				
 				writeTofile(dictString.toString().trim(),dictName);
-				System.out.println("¸üĞÂÍê³É");
+				System.out.println("æ›´æ–°è¯å…¸æˆåŠŸï¼");
 			}else{
-				System.out.println("¸üĞÂÊ§°Ü");
+				System.out.println("æ›´æ–°è¯å…¸å¤±è´¥ï¼");
 			}
 		}
 	}
