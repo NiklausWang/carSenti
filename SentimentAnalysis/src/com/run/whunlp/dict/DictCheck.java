@@ -23,13 +23,13 @@ public class DictCheck {
 	}
 
 	public static void test() {
-		System.out.println("²âÊÔ****************");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½****************");
 		IdentifyImpl idfea = new IdentifyImpl();
-		List<Feature> featureList = idfea.getFeatures("½ÚÎÂÆ÷µÄÍâ¹Û¾­µä");
+		List<Feature> featureList = idfea.getFeatures("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½");
 		Collections.sort(featureList);
 		if (featureList.size() > 0) {
 			for (Feature ft : featureList) {
-				System.out.println("Æ¥ÅäÌØÕ÷´Ê : " + ft.getFeatureName());
+				System.out.println("Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " + ft.getFeatureName());
 			}
 		}
 	}
@@ -90,13 +90,13 @@ public class DictCheck {
 			String[] stmp = temp.split("\t");
 			// System.out.println(stmp[0]);
 			IdentifyImpl idfea = new IdentifyImpl();
-			List<Feature> featureList = idfea.getComplexFeatures("½ÚÎÂÆ÷µÄ"
+			List<Feature> featureList = idfea.getComplexFeatures("èŠ‚æ¸©å™¨"
 					+ stmp[0]);
 			Collections.sort(featureList);
 			if (featureList.size() > 1) {
-				System.out.println("ÕÒµ½ÓëÌØÕ÷´ÊÓĞÏà½»µÄÇé¸Ğ´Ê : " + stmp[0]);
+				System.out.println("ç›¸äº¤çš„æƒ…æ„Ÿè¯: " + stmp[0]);
 				for (int j = 1; j < featureList.size(); j++) {
-					System.out.println("Æ¥ÅäÌØÕ÷´Ê : "
+					System.out.println("ç›¸äº¤çš„ç‰¹å¾è¯ : "
 							+ featureList.get(j).getFeatureName());
 				}
 			}

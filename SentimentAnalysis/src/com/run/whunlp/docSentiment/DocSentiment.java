@@ -10,10 +10,10 @@ import com.run.rhea.model.Feature;
 import com.run.whunlp.dict.Record;
 
 public final class DocSentiment {
-	private String document; // ´«ÈëÎÄµµ
-	private String brand; // Æ·ÅÆ×Ö·û´®
-	private int length; // ÎÄµµ³¤¶È
-	private final int SENLEN = 100; // ÉèÖÃ°üº¬Æ·ÅÆ×Ö·û´®Æ¬¶Î³¤¶ÈÍØÕ¹ÏŞÖÆ
+	private String document; // è¦å¤„ç†çš„æ–‡æ¡£
+	private String brand; // å¯¹åº”çš„æ±½è½¦å“ç‰Œ
+	private int length; // æ–‡æ¡£é•¿åº¦
+	private final int SENLEN = 100; // æ§åˆ¶åˆ‡åˆ†ç‰‡æ®µé•¿åº¦
 	private List<String> segSet = new ArrayList<String>();
 	private List<String> htmlSet = new ArrayList<String>();
 	private List<Record> matchPairs = new ArrayList<Record>();
@@ -22,18 +22,18 @@ public final class DocSentiment {
 
 	/**
 	 * @param document
-	 *            StringÀàĞÍµÄÔ­ÎÄµµ
+	 *            æ–‡æ¡£å­—ç¬¦ä¸²
 	 * @param brand
-	 *            StringÀàĞÍµÄÆû³µÆ·ÅÆ
+	 *            å“ç‰Œå­—ç¬¦ä¸²
 	 */
 	public DocSentiment(String document, String brand) {
 
-		document = document.replaceAll("\\n+", "").replaceAll("\\||\\¡ñ", "").replaceAll("\\s[\u4e00-\u9fa5]*?£º", "")
-				.replaceAll("[\\s\\S]*?", "").replaceAll("&nbsp", "");
-		// Pattern pt = Pattern.compile("[;£»:£º¡££¡!?£¿\"¡°¡±={}.*%$£¤@+-]{3,}");
-		Pattern pt = Pattern.compile("([;£»]\\s*){2,}");
+		document = document.replaceAll("\\n+", "").replaceAll("\\s[\u4e00-\u9fa5]*?ï¼š", "")
+				.replaceAll("\\s+", " ").replaceAll("&nbsp", "");
+		// Pattern pt = Pattern.compile("[;ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!?ï¿½ï¿½\"ï¿½ï¿½ï¿½ï¿½={}.*%$ï¿½ï¿½@+-]{3,}");
+		Pattern pt = Pattern.compile("([;ï¼›]\\s*){2,}");
 		Matcher mc = pt.matcher(document);
-		document = mc.replaceAll("£»");
+		document = mc.replaceAll(";");
 		this.document = document;
 		this.brand = brand;
 		this.length = this.document.length();
@@ -41,20 +41,21 @@ public final class DocSentiment {
 
 	/**
 	 * 
-	 * @return ´øhtml±êÇ©µÄÎÄ±¾Æ¬¶Î¼¯ºÏ
+	 * @return åˆ‡åˆ†çš„å¸¦æ ‡ç­¾æ–‡æœ¬ç‰‡æ®µ
 	 * @throws SentimentException
 	 * @throws IOException
 	 */
 	public List<String> SentiAnalyse() throws SentimentException, IOException {
 
 		if (this.length == 0 || this.brand.length() == 0) {
-			throw new SentimentException("ÎÄµµºÍÆ·ÅÆ²»Ó¦Îª¿Õ");
+			throw new SentimentException("æ–‡æ¡£æˆ–å“ç‰Œä¸ºç©º");
 		} else if (!this.document.contains(this.brand)) {
-			System.out.println("ÎÄµµ²»°üº¬¸ÃÆ·ÅÆ");
+			System.out.println("æ–‡æ¡£ä¸åŒ…å«è¯¥å“ç‰Œ");
+			return new ArrayList<String>();
 		} else if (cutPieces == false || this.length <= 120) {
 			this.segSet.add(this.document);
 		} else {
-			Pattern pt = Pattern.compile("[!;?¡££¡£»£¿\\s]+");
+			Pattern pt = Pattern.compile("[!?;ï¼ï¼Ÿï¼›ã€‚\\s]+");
 			int cstart = 0;
 			int start = 0;
 			String dcopy = this.document.substring(cstart);
@@ -122,11 +123,6 @@ public final class DocSentiment {
 		return this.htmlSet;
 	}
 
-	/**
-	 * @return ÌØÕ÷´ÊÇé¸Ğ´ÊÅä¶ÔµÄÈıÔª×éÁĞ±í
-	 * @throws IOException
-	 */
-
 	/*
 	 * public List<Record> getFSwords() throws IOException { Pattern pt =
 	 * Pattern.compile("<[^<]+>"); for (Feature e : featureList) { String
@@ -140,7 +136,7 @@ public final class DocSentiment {
 	}
 
 	/**
-	 * @return String ÊäÈëÎÄµµµÄËùÓĞÌØÕ÷×ÜÀà±ğ
+	 * @return String è·å–æ–‡æ¡£ç±»å‹
 	 */
 	public String getFeatureClass() {
 		if (featureList.isEmpty()) {

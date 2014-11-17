@@ -7,11 +7,10 @@ import java.util.Vector;
 
 import com.run.rhea.core.IdentifyImpl;
 import com.run.rhea.model.Feature;
+import com.run.whunlp.dict.ObjectAnalyseByDict;
 import com.run.whunlp.model.FeatureSentimentMerge;
-import com.run.whunlp.model.FeatureSentimentMergeSimple;
 import com.run.whunlp.model.MergePoint;
 import com.run.whunlp.model.TaggerPoint;
-import com.run.whunlp.dict.ObjectAnalyseByDict;
 
 public class wordsExtraTest {
 	public static void main(String args[]) {
@@ -19,7 +18,7 @@ public class wordsExtraTest {
 	}
 
 	public static void test() {
-		String text = "ËÄÇı²»µ½Î»£¬È±º¶£¬²»ÖµµÃÂò£¬²»ÖĞ¿Ï£¬²»Ï²»¶£¬µµÄÑ¹Ò£¬°²¶¨ĞÔ½Ï²îµÄGS°æ°Ù¹«Àï¼ÓËÙ11.3ÃëÈ±º¶£¬Ç°ÇıµÄGL°æÃ÷ÏÔ²»¸øÁ¦£¬Îª10.8Ãë¡£¶Ô80ºóÀ´Ëµ£¬Êı¾İ²¢²»ĞÑÄ¿¡£Êµ¼Ê¼İÊ»ÖĞµÄ¶¯Á¦±íÏÖÔòÁîÈËÂúÒâ¡£ÊĞÇøÖĞÆÄÎªÇáËÉ£¬¶Ì¾àÀë¼ÓËÙÍ¦ÀûÂä¡£ÄãÉõÖÁĞèÒªĞ¡ĞÄ¶Ô´ıÓÍÃÅ²ÅÄÜ±£Ö¤°´ÕÕ·¨¶¨ÏŞËÙĞĞÊ»¡£6µ²×Ô¶¯±äËÙÏäÓëµ±Ç°µÄ¾ıÍşµÈÒ»Ñù¶¼ÊÇÉı¼¶¹ıµÄ°æ±¾£¬»»µ²Á÷³©Ğí¶à¡£Ï²°®¾¡¿ìÉıÈë¸ßµ²Î»µÄÌØµãÒÀ¾É£¬ÕâÊÇ±£Ö¤ÓÍºÄ¾­¼ÃĞÔµÄ±ØÒªÊÖ¶Î¡£ÕâÒâÎ¶×ÅÔÚ´óÁ¦¼ÓËÙÊ±¾­³£ĞèÒª½Ï³¤µÄ½µµ²Ê±¼ä²»ºñµÀ£¬Ò²ÒâÎ¶×Å²»Ìá¹©¡°ÔË¶¯¡±±äËÙÄ£Ê½ÊÇÒ»¸öÈ±º¶¡£";
+		String text = "";
 		IdentifyImpl idfea = new IdentifyImpl();
 		List<Feature> fea = idfea.getComplexFeatures(text);
 		Collections.sort(fea);
@@ -48,7 +47,7 @@ public class wordsExtraTest {
 	}
 
 	public static void test1() {
-		String text = "ÑÅ¸ó>>ÈÙÍş550³µĞÍÊÛ¼Û£º9.98Íò-25.98Íò6ÔÂÏúÁ¿£º1103Ì¨Öá¾à³ß´ç£º2705mm³µĞÍÓÅµã£º¿Õ¼ä½Ï´ó£¬ÄÚÊÎ¿Æ¼¼¸ĞÇ¿£¬±£Ñø±ãÒË³µĞÍÈ±µã£º1.8L¶¯Á¦Æ«Èõ£¬ÊÖ¶¯±äËÙÏäÉè¼ÆĞè¸Ä½øÏúÁ¿µãÆÀ£ºÔø¾­µÄÈÙÍşÖ÷Á¦³µĞÍ£¬µ«ĞÔ¼Û±ÈÓÅÊÆ²»Èç¾ºÕù¶ÔÊÖ";
+		String text = "";
 
 		Vector<TaggerPoint> fTaggerList = new Vector<TaggerPoint>();
 		Vector<TaggerPoint> sentimentWordList = new Vector<TaggerPoint>();
@@ -79,13 +78,13 @@ public class wordsExtraTest {
 			tp.setEnd(end);
 			tp.setPolarity(2);
 			fTaggerList.add(tp);
-			System.out.println("Ìí¼ÓÒ»¸öÌØÕ÷´Ê: "
+			System.out.println("ç‰¹å¾è¯: "
 					+ text.substring(tp.getStart(), tp.getEnd()));
 		}
 		Collections.sort(fTaggerList);
 
 		for (TaggerPoint tp : sentimentWordList) {
-			System.out.println("ÕÒµ½Çé¸Ğ´Ê£º "
+			System.out.println("æƒ…æ„Ÿè¯ï¼š"
 					+ text.substring(tp.getStart(), tp.getEnd()));
 		}
 

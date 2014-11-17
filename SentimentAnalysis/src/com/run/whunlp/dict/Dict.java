@@ -99,16 +99,9 @@ public class Dict {
 		fw.close();
 	}
 
-	public void showInfo() {
-		System.out.println("词典共包含词条数为：" + (posCount + negCount + othCount));
-		System.out.println("正面词条数为：" + posCount);
-		System.out.println("负面词条数为：" + negCount);
-		System.out.println("其他词条数为：" + othCount);
-
-	}
 
 	public static void main(String args[]) throws IOException {
-		String text = "雅阁经典版.";
+		String text = "";
 		OptiDict od = OptiDict.getInstance();
 		Vector<TaggerPoint> tv = od.getTaggerPointByDict(text);
 		for (TaggerPoint tp : tv) {

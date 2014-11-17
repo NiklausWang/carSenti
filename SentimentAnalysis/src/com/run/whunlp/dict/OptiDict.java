@@ -75,7 +75,7 @@ public class OptiDict {
 	}
 
 	/*
-	 * 载入普通情感词典
+	 * 杞藉叆鍘诲櫔璇嶅吀
 	 */
 	private static void loadGeneralDict(String generalDictFile)
 			throws NumberFormatException, IOException {

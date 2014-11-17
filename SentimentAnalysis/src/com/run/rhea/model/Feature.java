@@ -1,7 +1,7 @@
 package com.run.rhea.model;
 
 /**
- * 瀛樻斁鐨勬槸瀛愮壒寰佸悕绉板拰瀛愮壒寰佹墍灞炵殑鐗瑰緛鐨勭被
+ * 特征词类
  * 
  * @author lenovo
  *
@@ -50,6 +50,7 @@ public class Feature implements Comparable<Feature> {
 		this.pos = pos;
 	}
 
+	@Override
 	public int compareTo(Feature feature) {
 		if (this.getPos() > feature.getPos()) {
 			return 1;
