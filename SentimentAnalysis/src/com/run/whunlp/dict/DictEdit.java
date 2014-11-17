@@ -16,8 +16,8 @@ import org.apache.commons.io.FileUtils;
 public class DictEdit {
 	private static List<DictTerm> dict;
 	public static void main(String args[]) throws IOException {
-		String sentimentTerm = "";
-		String polarity = "1";
+		String sentimentTerm = "服务区";
+		String polarity = "5";
 		
 		if(polarity.equals("5")){
 			addTerm("dict\\OptiDict",sentimentTerm,polarity);
@@ -45,6 +45,7 @@ public class DictEdit {
 			dict.add(dt);
 		}
 
+		System.out.println("共有词条数为：" + dict.size());
 	}
 
 	public static void writeTofile(String text, String path) throws IOException {
